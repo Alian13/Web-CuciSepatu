@@ -1,60 +1,99 @@
 <template>
-  <div>
-    <!-- HERO (Contact Header) -->
-    <section
-      class="py-20 bg-gradient-to-r from-gray-900 to-gray-800 text-white"
+  <section
+    :class="[
+      'min-h-screen py-16 md:py-24',
+      theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white',
+    ]"
+  >
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16"
     >
-      <div class="max-w-7xl mx-auto px-6">
-        <h1 class="text-4xl font-extrabold mb-4">Hubungi Kami</h1>
+      <!-- LEFT: Contact Info -->
+      <div>
+        <h1 :class="theme === 'dark' ? 'text-cyan-400' : 'text-blue-900'">
+          {{ t.contactUs }}
+        </h1>
 
-        <p class="text-gray-300 text-lg max-w-2xl">
-          Jika Anda memiliki pertanyaan, kritik, atau saran, silakan hubungi
-          kami melalui informasi di bawah.
+        <p
+          class="mt-4 mb-8 text-lg"
+          :class="theme === 'dark' ? 'text-gray-300' : 'text-gray-600'"
+        >
+          {{ t.contactSubtitle }}
         </p>
-      </div>
-    </section>
 
-    <!-- INFO & MAPS -->
-    <section class="py-16 bg-gray-100">
-      <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-10">
-        <!-- INFO -->
-        <div class="bg-white p-8 rounded-xl shadow">
-          <h2 class="text-2xl font-bold mb-6">Informasi Kontak</h2>
+        <div
+          class="p-6 rounded-2xl shadow-md"
+          :class="
+            theme === 'dark'
+              ? 'bg-gray-800 border border-gray-700'
+              : 'bg-blue-50 text-blue-900'
+          "
+        >
+          <h3 class="font-semibold mb-4">{{ t.contactInfo }}</h3>
 
-          <div class="space-y-4 text-gray-700">
-            <p><strong>Email:</strong> info@example.com</p>
-            <p><strong>Telepon:</strong> +62 812 3456 7890</p>
-            <p><strong>Alamat:</strong> Jl. Pendidikan No. 25, Balikpapan</p>
-          </div>
-
-          <hr class="my-6" />
-
-          <textarea
-            class="w-full p-4 border rounded-lg shadow-sm focus:ring focus:ring-blue-200"
-            placeholder="Tulis pesan Anda di sini..."
-            rows="5"
-          ></textarea>
-
-          <button
-            class="mt-4 w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition shadow"
-          >
-            Kirim Pesan
-          </button>
-        </div>
-
-        <!-- MAPS -->
-        <div>
-          <h2 class="text-2xl font-bold mb-4">Lokasi Kami</h2>
-
-          <div class="rounded-xl overflow-hidden shadow-xl">
-            <iframe
-              class="w-full h-80"
-              src="https://maps.google.com/maps?q=balikpapan&t=&z=13&ie=UTF8&iwloc=&output=embed"
-              loading="lazy"
-            ></iframe>
+          <div class="space-y-4 text-sm">
+            <div class="flex gap-3">
+              <span>📞</span> <span>+62 812-3456-7890</span>
+            </div>
+            <div class="flex gap-3">
+              <span>📧</span> <span>info@frisenencleaner.com</span>
+            </div>
+            <div class="flex gap-3">
+              <span>📍</span> <span>Jl. Bersih No. 123, Jakarta 12345</span>
+            </div>
+            <div class="pt-2">
+              <p class="font-semibold">{{ t.hours }}</p>
+              <p>Mon–Fri: 9AM – 6PM</p>
+              <p>Sat–Sun: 10AM – 4PM</p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-  </div>
+
+      <!-- RIGHT: Contact Form -->
+      <div>
+        <ContactForm
+          :theme="theme"
+          :language="language"
+          :translations="t"
+          @submit-success="openModal"
+        />
+      </div>
+    </div>
+
+    <!-- Success Modal -->
+    <OrderModal
+      :isOpen="isModalOpen"
+      :onClose="closeModal"
+      :theme="theme"
+      :translations="t"
+    />
+  </section>
 </template>
+
+<script setup>
+import { computed, ref } from "vue";
+import { useAppStore } from "../stores/useAppStore";
+
+// IMPORT FORM — perhatikan path ini
+import ContactForm from "../components/sections/ContactForm.vue";
+
+// IMPORT MODAL
+import OrderModal from "../components/ui/OrderModal.vue";
+
+const store = useAppStore();
+
+const theme = computed(() => store.theme);
+const language = computed(() => store.language);
+const t = computed(() => store.translations[language.value]);
+
+const isModalOpen = ref(false);
+
+const openModal = () => {
+  isModalOpen.value = true;
+};
+
+const closeModal = () => {
+  isModalOpen.value = false;
+};
+</script>
