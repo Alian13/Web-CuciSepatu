@@ -6,7 +6,7 @@
     ]"
   >
     <div
-      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-16"
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-0 grid md:grid-cols-2 gap-16"
     >
       <!-- LEFT: Contact Info -->
       <div>
@@ -32,19 +32,22 @@
           <h3 class="font-semibold mb-4">{{ t.contactInfo }}</h3>
 
           <div class="space-y-4 text-sm">
-            <div class="flex gap-3">
-              <span>📞</span> <span>+62 812-3456-7890</span>
+            <div class="flex gap-3 items-center">
+              <Phone class="w-5 h-5 text-blue-600" />
+              <span>+62 812-3456-7890</span>
             </div>
-            <div class="flex gap-3">
-              <span>📧</span> <span>info@frisenencleaner.com</span>
+            <div class="flex gap-3 items-center">
+              <Mail class="w-5 h-5 text-blue-600" />
+              <span>+62 812-3456-7890</span>
             </div>
-            <div class="flex gap-3">
-              <span>📍</span> <span>Jl. Bersih No. 123, Jakarta 12345</span>
+            <div class="flex gap-3 items-center">
+              <MapPin class="w-5 h-5 text-blue-600" />
+              <span>+62 812-3456-7890</span>
             </div>
             <div class="pt-2">
               <p class="font-semibold">{{ t.hours }}</p>
-              <p>Mon–Fri: 9AM – 6PM</p>
-              <p>Sat–Sun: 10AM – 4PM</p>
+              <p>Senin – Jum'at : 9AM – 9PM</p>
+              <p>Sabtu : 9AM - 6PM</p>
             </div>
           </div>
         </div>
@@ -64,9 +67,9 @@
     <!-- Success Modal -->
     <OrderModal
       :isOpen="isModalOpen"
-      :onClose="closeModal"
       :theme="theme"
       :translations="t"
+      @Close="closeModal"
     />
   </section>
 </template>
@@ -74,6 +77,8 @@
 <script setup>
 import { computed, ref } from "vue";
 import { useAppStore } from "../stores/useAppStore";
+
+import { Phone, Mail, MapPin } from "lucide-vue-next";
 
 // IMPORT FORM — perhatikan path ini
 import ContactForm from "../components/sections/ContactForm.vue";
