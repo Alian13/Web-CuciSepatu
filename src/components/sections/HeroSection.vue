@@ -1,7 +1,7 @@
 <template>
   <section
     :class="[
-      'relative py-20 md:py-32',
+      'relative pt- -20 pb-18 overflow-hidden',
       theme === 'dark'
         ? 'bg-gradient-to-br from-gray-800 to-gray-900'
         : 'bg-gradient-to-br from-blue-50 to-white',

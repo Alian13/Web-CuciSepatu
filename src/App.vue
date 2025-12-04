@@ -8,7 +8,7 @@
     <Header :theme="theme" :language="language" :translations="t" />
 
     <!-- CONTENT -->
-    <main class="pt-20">
+    <main class="pt-0 pb-12">
       <router-view />
     </main>
 
