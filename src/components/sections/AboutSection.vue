@@ -1,13 +1,13 @@
 <template>
   <section
-    :class="['py-16 md:py-24', theme === 'dark' ? 'bg-gray-900' : 'bg-white']"
+    :class="['py-7 md:py-15', theme === 'dark' ? 'bg-gray-900' : 'bg-white']"
   >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <!-- Header -->
       <div class="text-center mb-16">
         <h1
           :class="[
-            'mb-4',
+            'mb-5 text-3xl md:text-4xl font-bold',
             theme === 'dark' ? 'text-cyan-400' : 'text-blue-900',
           ]"
         >
@@ -24,12 +24,12 @@
       </div>
 
       <!-- Values Grid -->
-      <div class="grid md:grid-cols-3 gap-8 mb-16">
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8 mb-20">
         <div
           v-for="(value, index) in values"
           :key="index"
           :class="[
-            'p-8 rounded-2xl shadow-md hover:shadow-xl transition-shadow',
+            'p-6 rounded-2xl shadow-md hover:shadow-xl transition-shadow',
             theme === 'dark'
               ? 'bg-gray-800 border border-gray-700'
               : 'bg-white',
@@ -37,14 +37,14 @@
         >
           <div
             :class="[
-              'w-14 h-14 rounded-full flex items-center justify-center mb-6',
+              'w-12 h-12 rounded-full flex items-center justify-center mb-6',
               theme === 'dark' ? 'bg-cyan-900/30' : 'bg-blue-100',
             ]"
           >
             <component
               :is="value.icon"
               :class="[
-                'w-7 h-7',
+                'w-6 h-6',
                 theme === 'dark' ? 'text-cyan-400' : 'text-blue-600',
               ]"
             />
@@ -167,7 +167,6 @@ const content = {
 // Pilih bahasa
 const c = computed(() => content[props.language]);
 
-// Values grid (icon boxes)
 const values = computed(() => [
   {
     icon: Target,

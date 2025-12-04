@@ -8,9 +8,7 @@
     ]"
   >
     <div class="text-center">
-      <h2
-        :class="[theme === 'dark' ? 'text-cyan-400' : 'text-blue-900', 'mb-4']"
-      >
+      <h2 :class="[theme === 'dark' ? 'text-cyan-400' : 'text-blue-900']">
         {{ translations.serviceNotFound }}
       </h2>
 
@@ -59,8 +57,8 @@
         >
           <img
             :src="service.image"
-            :alt="service.title"
-            class="w-full h-full object-cover"
+            :alt="service.title[language]"
+            class="w-full h-[360px] md:h-[420px] object-cove"
           />
         </div>
 
@@ -72,7 +70,7 @@
               'mb-4',
             ]"
           >
-            {{ service.title }}
+            {{ service.title[language] }}
           </h1>
 
           <!-- Price -->
@@ -83,7 +81,7 @@
                 theme === 'dark' ? 'text-cyan-400' : 'text-blue-600',
               ]"
             >
-              {{ service.price }}
+              {{ service.price[language] }}
             </span>
             <span class="text-gray-500">per pair</span>
           </div>
@@ -94,7 +92,7 @@
               'mb-8 leading-relaxed',
             ]"
           >
-            {{ service.description }}
+            {{ service.description[language] }}
           </p>
 
           <!-- Features -->
@@ -112,12 +110,12 @@
                 'mb-4',
               ]"
             >
-              {{ translations.whatsIncluded }}
+              {{ translations.whatsIncluded[language] }}
             </h3>
 
             <ul class="space-y-3">
               <li
-                v-for="(feature, index) in service.features"
+                v-for="(feature, index) in service.features[language]"
                 :key="index"
                 class="flex items-start gap-3"
               >
@@ -267,7 +265,12 @@
 </template>
 
 <script setup>
+import { useAppStore } from "../../stores/useAppStore";
+import { computed } from "vue";
 import { ArrowLeft, Check } from "lucide-vue-next";
+
+const store = useAppStore();
+const language = computed(() => store.language);
 
 const props = defineProps({
   service: Object,

@@ -9,7 +9,7 @@
     <div class="aspect-[4/3] overflow-hidden">
       <img
         :src="service.image"
-        :alt="service.title"
+        :alt="service.title[language]"
         class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
       />
     </div>
@@ -19,7 +19,7 @@
       <h3
         :class="['mb-2', theme === 'dark' ? 'text-cyan-400' : 'text-blue-900']"
       >
-        {{ service.title }}
+        {{ service.title[language] }}
       </h3>
 
       <p
@@ -28,7 +28,7 @@
           theme === 'dark' ? 'text-gray-400' : 'text-gray-600',
         ]"
       >
-        {{ service.description }}
+        {{ service.description[language] }}
       </p>
 
       <!-- Price -->
@@ -39,7 +39,7 @@
             theme === 'dark' ? 'text-cyan-400' : 'text-blue-600',
           ]"
         >
-          {{ service.price }}
+          {{ service.price[language] }}
         </span>
         <span class="text-sm text-gray-500"> per pair </span>
       </div>
@@ -68,6 +68,7 @@ const props = defineProps({
   service: Object,
   theme: String,
   translations: Object,
+  language: String,
 });
 
 const emit = defineEmits(["view-details"]);

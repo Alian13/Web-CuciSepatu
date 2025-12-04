@@ -10,7 +10,7 @@
 
     <OrderModal
       :isOpen="modalOpen"
-      :serviceName="service?.title"
+      :serviceName="service?.title[store.language]"
       :theme="theme"
       :translations="translations"
       @close="modalOpen = false"
