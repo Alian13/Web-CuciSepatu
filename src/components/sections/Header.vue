@@ -12,11 +12,10 @@
           @click="goTo('home')"
           class="flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
-          <Sparkles
-            :class="[
-              'w-6 h-6 md:w-8 md:h-8',
-              theme === 'dark' ? 'text-cyan-400' : 'text-blue-600',
-            ]"
+          <img
+            src="/images/Logo_FC.png"
+            alt="Frisenen Cleaners Logo"
+            class="w-100 h-120 md:w-15 md:h-15"
           />
           <span :class="theme === 'dark' ? 'text-cyan-400' : 'text-blue-900'">
             Frisenen Cleaners
@@ -27,11 +26,11 @@
         <nav class="hidden md:flex items-center gap-6">
           <button
             v-for="item in navItems"
-            :key="item.path"
-            @click="goTo(item.path)"
+            :key="item.name"
+            @click="goTo(item.name)"
             :class="[
               'transition-colors',
-              currentPage === item.path
+              currentPage === item.name
                 ? theme === 'dark'
                   ? 'text-cyan-400'
                   : 'text-blue-600'
@@ -40,7 +39,7 @@
                 : 'text-gray-700 hover:text-blue-600',
             ]"
           >
-            {{ item.name }}
+            {{ item.label }}
           </button>
 
           <!-- Theme toggle -->
@@ -174,8 +173,8 @@ defineEmits(["toggle-theme", "toggle-language"]);
 /* Router */
 const router = useRouter();
 
-function goTo(path) {
-  router.push({ name: path });
+function goTo(name) {
+  router.push({ name });
 }
 
 /* Mobile menu */
@@ -183,10 +182,10 @@ const mobileMenuOpen = ref(false);
 
 /* Nav Items (translated) */
 const navItems = computed(() => [
-  { name: props.translations.home, path: "home" },
-  { name: props.translations.about, path: "about" },
-  { name: props.translations.services, path: "services" },
-  { name: props.translations.contact, path: "contact" },
+  { name: "home", label: props.translations.home, path: "home" },
+  { name: "about", label: props.translations.about, path: "about" },
+  { name: "services", label: props.translations.services, path: "services" },
+  { name: "contact", label: props.translations.contact, path: "contact" },
 ]);
 
 /* Mobile navigate */

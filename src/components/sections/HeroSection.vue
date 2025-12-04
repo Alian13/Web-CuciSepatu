@@ -1,7 +1,7 @@
 <template>
   <section
     :class="[
-      'relative pt- -20 pb-18 overflow-hidden',
+      'relative pt-10 pb-18 overflow-hidden',
       theme === 'dark'
         ? 'bg-gradient-to-br from-gray-800 to-gray-900'
         : 'bg-gradient-to-br from-blue-50 to-white',
@@ -40,7 +40,7 @@
 
           <!-- Order Button -->
           <button
-            @click="router.push({ name: 'order' })"
+            @click="router.push({ name: 'services' })"
             :class="[
               'px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2',
               theme === 'dark'
@@ -48,7 +48,7 @@
                 : 'bg-blue-600 hover:bg-blue-700 text-white',
             ]"
           >
-            {{ translations.orderNow }}
+            {{ c.orderNow }}
             <ArrowRight class="ml-2 w-5 h-5" />
           </button>
         </div>
@@ -91,6 +91,9 @@
 <script setup>
 import { computed } from "vue";
 import { ArrowRight } from "lucide-vue-next";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 /* Props */
 const props = defineProps({
@@ -110,6 +113,7 @@ const content = {
     description:
       "Experience professional shoe cleaning that brings new life to your favorite footwear. We use premium products and expert techniques with free pickup & delivery within 5 km.",
     customers: "Happy Customers",
+    orderNow: "Order Now",
   },
   id: {
     title: "Layanan Cuci Sepatu Profesional",
@@ -117,6 +121,7 @@ const content = {
     description:
       "Rasakan layanan cuci sepatu profesional yang menghidupkan kembali sepatu favorit Anda. Kami menggunakan produk premium dan teknik ahli dengan antar jemput gratis dalam radius 5 km.",
     customers: "Pelanggan Puas",
+    orderNow: "Pesan Sekarang",
   },
 };
 

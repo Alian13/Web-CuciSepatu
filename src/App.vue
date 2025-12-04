@@ -5,7 +5,12 @@
     "
   >
     <!-- HEADER -->
-    <Header :theme="theme" :language="language" :translations="t" />
+    <Header
+      :theme="theme"
+      :language="language"
+      :translations="t"
+      :current-page="$route.name"
+    />
 
     <!-- CONTENT -->
     <main class="pt-0 pb-12">

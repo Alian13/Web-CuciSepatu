@@ -32,7 +32,11 @@ const theme = computed(() => store.theme);
 const language = computed(() => store.language);
 const translations = computed(() => store.translations[language.value]);
 
-const galleryImages = ["/img/clean1.jpg", "/img/clean2.jpg", "/img/clean3.jpg"];
+const galleryImages = [
+  "/images/CleanShoes1.jpeg",
+  "/images/CleanShoes2.jpeg",
+  "/images/CleanShoes3.jpeg",
+];
 
 const orderModalOpen = ref(false);
 const openOrderModal = () => {
