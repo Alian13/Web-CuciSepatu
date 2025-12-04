@@ -42,6 +42,8 @@ export default {
       "Have questions or ready to book our service? Fill out the form and we’ll contact you within 24 hours.",
     contactInfo: "Contact Information",
     hours: "Hours",
+    hoursWeekday: "Monday – Friday : 9AM – 9PM",
+    hoursWeekend: "Saturday : 9AM – 6PM",
   },
 
   id: {
@@ -86,5 +88,7 @@ export default {
       "Punya pertanyaan atau ingin memesan layanan? Isi formulir dan kami akan menghubungi Anda dalam 24 jam.",
     contactInfo: "Informasi Kontak",
     hours: "Jam Operasional",
+    hoursWeekday: "Senin – Jum'at : 9AM – 9PM",
+    hoursWeekend: "Sabtu : 9AM – 6PM",
   },
 };

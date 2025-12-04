@@ -46,8 +46,8 @@
             </div>
             <div class="pt-2">
               <p class="font-semibold">{{ t.hours }}</p>
-              <p>Senin – Jum'at : 9AM – 9PM</p>
-              <p>Sabtu : 9AM - 6PM</p>
+              <p>{{ t.hoursWeekday }}</p>
+              <p>{{ t.hoursWeekend }}</p>
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 <template>
   <header
     :class="[
-      'shadow-sm sticky top-0 z-50',
+      'shadow-sm sticky top-0 z-[9999]',
       theme === 'dark' ? 'bg-gray-800 border-b border-gray-700' : 'bg-white',
     ]"
   >

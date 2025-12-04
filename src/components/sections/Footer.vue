@@ -60,9 +60,14 @@
               <Twitter class="w-5 h-5" />
             </button>
 
-            <button :class="socialBtn">
+            <a
+              :class="socialBtn"
+              href="https://instagram.com/frisenencleaners"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Instagram class="w-5 h-5" />
-            </button>
+            </a>
           </div>
         </div>
       </div>

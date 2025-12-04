@@ -10,6 +10,8 @@
       :language="language"
       :translations="t"
       :current-page="$route.name"
+      @toggle-theme="store.toggleTheme"
+      @toggle-language="store.toggleLanguage"
     />
 
     <!-- CONTENT -->

@@ -19,7 +19,7 @@ export const useAppStore = defineStore("app", {
     },
 
     toggleLanguage() {
-      this.language = this.language === "en" ? "id" : "en";
+      this.language = this.language === "id" ? "en" : "id";
     },
   },
 });
