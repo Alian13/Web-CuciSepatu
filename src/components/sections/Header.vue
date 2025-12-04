@@ -15,7 +15,7 @@
           <img
             src="/images/Logo_FC.png"
             alt="Frisenen Cleaners Logo"
-            class="w-100 h-120 md:w-15 md:h-15"
+            class="w-10 h-10 md:w-14 md:h-14 object-contain"
           />
           <span :class="theme === 'dark' ? 'text-cyan-400' : 'text-blue-900'">
             Frisenen Cleaners

@@ -42,14 +42,16 @@
           <button
             @click="router.push({ name: 'services' })"
             :class="[
-              'px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2',
+              'rounded-full shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2',
+              'w-full md:w-auto mx-auto md:mx-0',
+              ' py-4 md:px-5 md:py-4', // ukuran kecil di HP
               theme === 'dark'
                 ? 'bg-cyan-600 hover:bg-cyan-700 text-white'
                 : 'bg-blue-600 hover:bg-blue-700 text-white',
             ]"
           >
             {{ c.orderNow }}
-            <ArrowRight class="ml-2 w-5 h-5" />
+            <ArrowRight class="ml-2 w-4 h-4 md:w-5 md:h-5" />
           </button>
         </div>
 
