@@ -35,14 +35,12 @@
 
             <div class="flex items-center gap-3">
               <Mail :class="iconClass" class="w-4 h-4" />
-              <span :class="textClass">info@frisenencleaner.com</span>
+              <span :class="textClass">frisenencleaners@gmail.com</span>
             </div>
 
             <div class="flex items-center gap-3">
               <MapPin :class="iconClass" class="w-4 h-4" />
-              <span :class="textClass">
-                Jl. Bersih No. 123, Jakarta 12345
-              </span>
+              <span :class="textClass"> Jl. Kelud U/14 Perum HER 2 </span>
             </div>
           </div>
         </div>
@@ -52,14 +50,6 @@
           <h3 class="mb-4">{{ t.follow }}</h3>
 
           <div class="flex gap-4">
-            <button :class="socialBtn">
-              <Facebook class="w-5 h-5" />
-            </button>
-
-            <button :class="socialBtn">
-              <Twitter class="w-5 h-5" />
-            </button>
-
             <a
               :class="socialBtn"
               href="https://instagram.com/frisenencleaners"
@@ -89,14 +79,7 @@
 
 <script setup>
 import { computed } from "vue";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Facebook,
-  Twitter,
-  Instagram,
-} from "lucide-vue-next";
+import { Mail, Phone, MapPin, Instagram } from "lucide-vue-next";
 
 const props = defineProps({
   theme: String,

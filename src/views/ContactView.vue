@@ -38,11 +38,11 @@
             </div>
             <div class="flex gap-3 items-center">
               <Mail class="w-5 h-5 text-blue-600" />
-              <span>+62 812-3456-7890</span>
+              <span>frisenencleaners@gmail.com</span>
             </div>
             <div class="flex gap-3 items-center">
               <MapPin class="w-5 h-5 text-blue-600" />
-              <span>+62 812-3456-7890</span>
+              <span>Jl. Kelud U/14 Perum HER 2</span>
             </div>
             <div class="pt-2">
               <p class="font-semibold">{{ t.hours }}</p>
