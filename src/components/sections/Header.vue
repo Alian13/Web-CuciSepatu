@@ -186,6 +186,7 @@ const navItems = computed(() => [
   { name: "about", label: props.translations.about, path: "about" },
   { name: "services", label: props.translations.services, path: "services" },
   { name: "contact", label: props.translations.contact, path: "contact" },
+  { name: "cv", label: props.translations.cv, path: "cv" },
 ]);
 
 /* Mobile navigate */

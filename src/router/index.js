@@ -5,6 +5,7 @@ import AboutView from "../views/AboutView.vue";
 import ServicesView from "../views/ServicesView.vue";
 import ServiceDetailView from "../views/ServiceDetailView.vue";
 import ContactView from "../views/ContactView.vue";
+import CvView from "../views/CvView.vue";
 
 const routes = [
   { path: "/", name: "home", component: HomeView },
@@ -16,6 +17,7 @@ const routes = [
     component: ServiceDetailView,
   },
   { path: "/contact", name: "contact", component: ContactView },
+  { path: "/", name: "CV", component: CvView },
 ];
 
 export default createRouter({
